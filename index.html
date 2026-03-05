@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recreated Fashion Homepage V2</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@300;400;500;600&amp;family=Material+Icons+Outlined&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1a1a1a",
+                        secondary: "#d4a373",
+                        "background-light": "#fdf8f4",
+                        "background-dark": "#121212",
+                        "accent-cream": "#f5ebe0",
+                        "accent-pink": "#e3d5ca",
+                    },
+                    fontFamily: {
+                        display: ["Playfair Display", "serif"],
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "4px",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .hero-reveal { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: currentColor;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300">
+<div class="w-full py-2 px-6 bg-primary text-[10px] tracking-[0.2em] text-white flex justify-between items-center uppercase">
+<span>Free Shipping on Orders Over $150</span>
+<div class="flex gap-4">
+<a class="hover:opacity-70" href="#">FB</a>
+<a class="hover:opacity-70" href="#">TW</a>
+<a class="hover:opacity-70" href="#">IG</a>
+</div>
+</div>
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-black/5 dark:border-white/5">
+<div class="container mx-auto px-6 py-5 flex items-center justify-between">
+<div class="flex-1 hidden lg:flex items-center gap-8">
+<nav class="flex gap-6 text-[11px] font-medium tracking-widest uppercase">
+<a class="nav-link" href="#">Home</a>
+<a class="nav-link" href="#">Shop</a>
+<a class="nav-link" href="#">Style</a>
+<a class="nav-link" href="#">About</a>
+</nav>
+</div>
+<div class="flex-shrink-0 text-center">
+<h1 class="font-display text-3xl font-bold tracking-tight">Women's</h1>
+<p class="text-[9px] uppercase tracking-[0.4em] -mt-1 opacity-60">Couture &amp; Style</p>
+</div>
+<div class="flex-1 flex justify-end items-center gap-6">
+<div class="relative hidden md:block">
+<input class="bg-transparent border-none text-[10px] tracking-widest focus:ring-0 w-32 placeholder:text-slate-400" placeholder="SEARCH" type="text"/>
+<span class="material-icons-outlined text-sm absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none">search</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:opacity-60 transition-opacity"><span class="material-icons-outlined text-[20px]">person_outline</span></button>
+<button class="hover:opacity-60 transition-opacity"><span class="material-icons-outlined text-[20px]">favorite_border</span></button>
+<button class="hover:opacity-60 transition-opacity relative">
+<span class="material-icons-outlined text-[20px]">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-primary text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center">2</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main>
+<section class="relative h-[85vh] overflow-hidden bg-accent-cream dark:bg-zinc-900">
+<div class="container mx-auto h-full flex items-center px-6 relative z-10">
+<div class="max-w-xl">
+<h2 class="font-display text-7xl md:text-8xl leading-tight text-primary dark:text-white" id="hero-title">
+                        Elevate Your<br/><span class="italic font-normal">Style!</span>
+</h2>
+<p class="mt-6 text-sm tracking-[0.2em] uppercase opacity-70">The New Collection Is Here</p>
+<div class="mt-10 flex gap-4">
+<button class="px-8 py-4 bg-primary text-white text-xs tracking-widest uppercase hover:bg-neutral-800 transition-all">Shop Collection</button>
+<button class="px-8 py-4 border border-primary dark:border-white text-primary dark:text-white text-xs tracking-widest uppercase hover:bg-primary hover:text-white transition-all">View Lookbook</button>
+</div>
+</div>
+</div>
+<div class="absolute inset-0 flex justify-end">
+<div class="w-full lg:w-2/3 h-full overflow-hidden">
+<img alt="Elegant model in high-end fashion" class="w-full h-full object-cover object-center hero-reveal transition-transform duration-[2s] scale-105 hover:scale-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB79dupyfys4n4v8im8H0BuA7HHnKsBHx15-rH-TiLfaitFXazGlLsYMj8Auh8Ac0pFCfsybA4yFUxioAiqHyvZv7zN97SHJz-ECvXJiaTcvT2Yqx_2h6v5ofsx8Qm0S645ARbq95rL8fbQJkA45Z5PknwCz_Rfqo9lHAie5JnCYLi-XLaI0y339a5X4Je1X6NkOltIIDW3rfpvTrtR-1h5HFHySnzfwMbYvsdJ8uMjSVKqSVTDnGpuuCa5q_W0NtX4q39VpELPhY"/>
+</div>
+</div>
+<button class="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center border border-black/10 dark:border-white/10 rounded-full hover:bg-white/20 transition-colors">
+<span class="material-icons-outlined">chevron_left</span>
+</button>
+<button class="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center border border-black/10 dark:border-white/10 rounded-full hover:bg-white/20 transition-colors">
+<span class="material-icons-outlined">chevron_right</span>
+</button>
+</section>
+<section class="py-24 container mx-auto px-6">
+<div class="text-center mb-16">
+<h3 class="font-display text-3xl tracking-wide uppercase dark:text-white">Casual Wear</h3>
+<div class="w-12 h-[2px] bg-primary mx-auto mt-4"></div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden mb-4 rounded">
+<img alt="Casual Jumpsuit" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4RRrQyxvIKuwZFvF8nLuZYGIDTEM5NpijMjrh0Siw5yaD_bOp202ZJBK0KhdGRS8MYdrtGchLnypNOZcn_DbLjSHwlaiJovMI5ADmxtSYSvbL_QC0zz7jbUPhxs1i2lQVHk-LloM_WmZ_BDzRzcx1bGllo9fJREeZmPo1SzfSS4-bRaTnRDLesrTsdlQgE9x1y2cAm0wMi-wZE88GlCg6d9btTobmCVSkp3cL0hhY1jQXDa2zPuLT_-g36ckBEKegQFEKO-uB0Y4"/>
+</div>
+<div class="text-center">
+<h4 class="text-sm font-semibold tracking-wide uppercase">Casual Wear</h4>
+<p class="text-xs opacity-50 mt-1">$120.00</p>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden mb-4 rounded">
+<img alt="Elegant Dress" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBofMJ3x6H-xQPVSfqIh21ZUO_DlhAtEKHG8l7SF4fs15-slL4XfvgZ-3Fyb34GRsis6mvm-6DqxLeMK2y4Mi8UdRQ8h0tzstGgaJcEmJiSGzAsaosPYb0d_V2Ihq4G2EVYgG7lRdLmruxYY5zYS4LMC5ZsYIVCaAvcOWOomhdj7nKit_sqeByg1VnXcUnR859W1dbhJVGfHCw3YaytFrCu83heoYbn0_bjGWRpovEUQ9yOhrIFESyDMyGxIb0hBjylvhvBLAJiWLo"/>
+</div>
+<div class="text-center">
+<h4 class="text-sm font-semibold tracking-wide uppercase">Elegant Dress</h4>
+<p class="text-xs opacity-50 mt-1">$185.00</p>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden mb-4 rounded">
+<img alt="Minimal Dress" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnMxFFzc6BegYemIBWC0mMbLfjWsX4oWz2OotIycprRICnomzAFGZ-K3vnCiYJrmG8SsA28gNGiWxgrFo9pN5LZiIHpjsZsYXUlFxy3afZyHdzh290JJZ3VY2K1eolehAywXbTcFiCwWd7zK3Ry0H0SqEwM-BhZfzzV-OkILFfBqxJsAktNzgKlkRSfnyeq0KstmsoiQGcD6uiIDDpCzXSPvPf5lk0ZH99DVtyzd9CeE91Yb5LxuH7SHJxS-c2xWiFTrpnMlnFYKk"/>
+</div>
+<div class="text-center">
+<h4 class="text-sm font-semibold tracking-wide uppercase">Minimal Dress</h4>
+<p class="text-xs opacity-50 mt-1">$145.00</p>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden mb-4 rounded">
+<img alt="Workwear" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyrqHSsGemdM58vto27m0dajS8JPtc_k74q1_MHhH-h1hhvbSm8agQF-gEOjU1JbbRH_-rSLSBbIMAUhNqROC9cv86brq1bpesPEX4wf-sEajQtrL0cF_z1cDuOdu4kw5zf5VLAEde0A34FTY5RZgzRdYEsWoHBCj3tBrUhhgiRI-x9z446KC-h_ccfX4j1DHeGK45Hl0LjN13rVwKID8DRzPYUUciuzdemQf7TPjGieulDnrkqSxvOMtb-hIaF_BfSpZYxbqSc-A"/>
+</div>
+<div class="text-center">
+<h4 class="text-sm font-semibold tracking-wide uppercase">Workwear</h4>
+<p class="text-xs opacity-50 mt-1">$210.00</p>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden mb-4 rounded">
+<img alt="Seasons Trends" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBErONunkd5emGMSvIZ0ciMhRPQGMlwPnj9riIMmHzUfIfQSAhtpL6HPMr6Yc9uhSJib60OUb_bcjAtu8HPkOwtR0p14CdnL0rqmiE6pYpsEPOi1mWFeUkxuuGxJ_Suyqgz6ikU73_X0Zah9-LJ4_ThG-uoLeXGgM9tPHkv5beXEEM_CJMoM0WZdsg0Ggq03TBK9i837a7jJyn82d_wCnMR9B1seFwLKNe_K4X_mIOvVMTtz_jxv2HuLoi-tEHS1UKpwVIrgTI67jw"/>
+</div>
+<div class="text-center">
+<h4 class="text-sm font-semibold tracking-wide uppercase">Seasons Trends</h4>
+<p class="text-xs opacity-50 mt-1">$95.00</p>
+</div>
+</div>
+</div>
+</section>
+<section class="grid grid-cols-1 md:grid-cols-2 bg-accent-pink dark:bg-zinc-800 h-[500px]">
+<div class="relative overflow-hidden order-last md:order-first">
+<img alt="Spring model" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC7qoMgSVwneQsocd6l3s4VnB-ACnFwN2MdoHyg1ywZO2r1bUczeO6dsa6KK2AI7K_sHJD9vZKu_3iuMT8AbMKFO0RaC_CRIBI9DMMcuh2DFQL8CXevRfjUL_ZYLswZBE7FyYENZ8-vdtWowwiRy9IJgoFmId0x4ud7519MYYdoHbNaun55zm19bQ0x60oEIdQJWb1HqkK-vgL1NUN6k_fd2_i25Dy-_8LKTQ4dKuGHq7lZ6w0FHG2Xz5xnAR7crym56k7WRsRlbQ"/>
+</div>
+<div class="flex flex-col justify-center items-center text-center p-12">
+<h3 class="font-display text-4xl mb-4 dark:text-white">Spring Collection</h3>
+<p class="text-6xl font-bold mb-8 text-primary dark:text-white">30% OFF</p>
+<button class="px-10 py-4 bg-white dark:bg-primary dark:text-white text-primary text-xs tracking-widest uppercase font-bold hover:shadow-xl transition-all">Shop Now</button>
+</div>
+</section>
+<section class="py-24 container mx-auto px-6">
+<div class="text-center mb-16">
+<h3 class="font-display text-3xl tracking-wide uppercase dark:text-white">Customer Trends</h3>
+<div class="w-12 h-[2px] bg-primary mx-auto mt-4"></div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+<div class="group">
+<div class="aspect-[4/5] overflow-hidden mb-4 rounded">
+<img alt="Trend 1" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhkvKRJhlLAHtdr_ibghkLxrDDdwlz8nC8YsLPrm1tLzhQvneu9evzyD_5QBRNBistJSdxMyCzHvQmwpoH8bVAZCa_dSXqsEJQWy6mVIRRnhobnOXgxnDzXrjjddD3fGemLb-_v88hPN56caJEtKFZW8ubVYfS4SFQS1CuzVcPisZoAhYFUDlvdPQpk5NmlXkRs3R9wexgsf6js-2tduKUONWfOi-ZJ_hhaJDaOZzY77qx9R1ySXR6BxX0l3T1xh8A9jPkatv7PRM"/>
+</div>
+<div class="text-center">
+<h5 class="text-[11px] font-bold uppercase tracking-wider">Blue Noon</h5>
+<div class="flex justify-center gap-1 my-1">
+<span class="w-2 h-2 rounded-full bg-blue-500"></span>
+<span class="w-2 h-2 rounded-full bg-orange-200"></span>
+</div>
+</div>
+</div>
+<div class="group">
+<div class="aspect-[4/5] overflow-hidden mb-4 rounded">
+<img alt="Trend 2" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRGA8lBKuN9thivd63LDas2Z2aD5NB4FEPPchJBqX_maW9mW2yLHiy44ybfmJzl3ClAkq5Ueb1xWSXttv9SJ01s_CyBxJpx8R9uD1XvxjgqCu1jCysMFbyRYGzsMIlfrF__zLDTJUI6WJaksn9HDxZ8cOm2yAuPbrATocWD3PrjUBFu0I07CELBjxzxhVbCLEDNsAISte0AqV_zKBo3zZKr0Do8urQP6Dsu7PE5TE5UqpQ-N1HDr9CJHi5UBJ8jeqjxTvGmKSk2_U"/>
+</div>
+<div class="text-center">
+<h5 class="text-[11px] font-bold uppercase tracking-wider">Solar Aura</h5>
+<div class="flex justify-center gap-1 my-1">
+<span class="w-2 h-2 rounded-full bg-orange-400"></span>
+<span class="w-2 h-2 rounded-full bg-slate-200"></span>
+</div>
+</div>
+</div>
+<div class="group">
+<div class="aspect-[4/5] overflow-hidden mb-4 rounded">
+<img alt="Trend 3" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbeBN2tmF_kzTdI8Wf9zgHFKh5rI9mOo5ENL1_tDfQiN4eLK6nU-71ANm6MV0tWjL1gqgYZVBGQJAodxvIeGnbvXlMaVSN4sKSwCT7j7Tm00NvYMxmTHihG2yv4DSTPK7CekTd-aKBuNAGoxY7aVGzLHktqKzyEn7iq09gbmhyj9pJ8Od8U7_2XaOHkT3UpjJo2ujE3ozBcZKpYFMyeAPu2Jc0CZhBvwNBIRznbWDgmqatCh6Bj8OhpBAOKPe2isyyIjinvt2C7ec"/>
+</div>
+<div class="text-center">
+<h5 class="text-[11px] font-bold uppercase tracking-wider">Noir Chic</h5>
+<div class="flex justify-center gap-1 my-1">
+<span class="w-2 h-2 rounded-full bg-black"></span>
+<span class="w-2 h-2 rounded-full bg-white border"></span>
+</div>
+</div>
+</div>
+<div class="group">
+<div class="aspect-[4/5] overflow-hidden mb-4 rounded">
+<img alt="Trend 4" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABFhJMURHRkbuH_LIu85nB33PGFu8JffKxOwFIYDUdZhy0StbzcigXzSDWxNoHapaht_MPtc2lO9m3P78LoZzsTHImIsMfHvuhplNmCKDc6oBISn09Fl1-w4MntECiRQcNBc3BQljrMwLUHr1VnO4qrQuVOKp82wUK6Hbx3uxR_vbkXHViBRfQ9SkIGrdioQC-LkpqPY5pcujcdTXJ8dFZzHWlCvadQ9D710TLAYYtbqRF0Sm2-hYPYhQaKPkejMtmyqfBQDKPzec"/>
+</div>
+<div class="text-center">
+<h5 class="text-[11px] font-bold uppercase tracking-wider">Rose Tint</h5>
+<div class="flex justify-center gap-1 my-1">
+<span class="w-2 h-2 rounded-full bg-rose-200"></span>
+</div>
+</div>
+</div>
+<div class="group">
+<div class="aspect-[4/5] overflow-hidden mb-4 rounded">
+<img alt="Trend 5" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1AxhELA_jO-QWcFrzhfIlOd6U8CS_yHN0iI-YqSmUKybhu4KmPS_OwdZxfb_FY_zZN6n9K0zQmsOQ_NkQ6c0PtIIeL2w8oJdNE_H5KncTlOC3G83gjIGTh7Ayf7zOYtZoPdX9XJBRPkIzFGUzMYfGV9A3-c5xJbt9-7AjD_eYrJD62JL99o5zG6DFbYZZSh30A4qlZKR8-MWabUID1oAUqd8w_tiEJKgS9clOBTwCOGy9kCONH25znhVXuWA3wN_IJzGVyNQv-gA"/>
+</div>
+<div class="text-center">
+<h5 class="text-[11px] font-bold uppercase tracking-wider">Urban Edge</h5>
+<div class="flex justify-center gap-1 my-1">
+<span class="w-2 h-2 rounded-full bg-zinc-800"></span>
+</div>
+</div>
+</div>
+<div class="group">
+<div class="aspect-[4/5] overflow-hidden mb-4 rounded">
+<img alt="Trend 6" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1EmcB9Ts6ugX7I_wrEIqs8hKCqt6sgmaKNeEUZR7OeKXPo1lk_2LDMDybueXUn6uxKNZRlUPW9jFPv29EIeTmKvjw6TtZYt-pUxErTNPKOHF9XIy5595fru4xtnZLZ_KGJ6oeoGpiVfLNLpWWsAL-_c9Yd_alMD3zYnVwyQKiX65tCkVUeMoNldIxh_xMRUtKbAhLYcuva6lsNGOyyi24tT3SpCAbDbilTNAy4Xn_iZ8CJadZjOhQ1iGmE-wyao4YDMhhR6h3P7g"/>
+</div>
+<div class="text-center">
+<h5 class="text-[11px] font-bold uppercase tracking-wider">Soft Earth</h5>
+<div class="flex justify-center gap-1 my-1">
+<span class="w-2 h-2 rounded-full bg-stone-300"></span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="h-[600px] flex overflow-hidden">
+<div class="w-1/2 relative">
+<img alt="Editorial left" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvADUCFVPtKGFSoEfUIs4rf9ioeWfzGPjR-jUTUFENnhWVPIBrvOXmtg8xgHobGxs1vM0S6y3U5hA_n3mnIQDNaVhcrEGCpcWBLky3QcFzBEUnDdBT0OK7K5TaxNf2TxRwwe3qQ-AoJFAXGvW7lO-yrAYyWfWPcpiwlEjJIneyak7d1zL7XgPR5zJyACfGtfE9HP4Y7_bnii-2xHUpHCyP2NArW3JGobi9fjitGfopxtbK1-FfyvX2sOPKdQDKj5a9K0FKdPoHYaE"/>
+</div>
+<div class="w-1/2 bg-[#c6a49a] dark:bg-zinc-900 flex flex-col justify-center px-12 md:px-24">
+<span class="text-white/80 text-[10px] uppercase tracking-[0.3em] mb-4">The Editorial</span>
+<h3 class="font-display text-4xl text-white mb-6">Fashion for Life</h3>
+<p class="text-white/70 text-sm leading-relaxed mb-8 max-w-md">Our collection brings together modern aesthetics with timeless comfort, crafted for the woman who values both style and substance.</p>
+<div class="flex gap-4">
+<a class="text-white text-xs tracking-widest border-b border-white pb-1 hover:opacity-70 transition-opacity uppercase" href="#">Read the story</a>
+<a class="text-white text-xs tracking-widest border-b border-white pb-1 hover:opacity-70 transition-opacity uppercase" href="#">View products</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-primary text-white pt-20 pb-10">
+<div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div>
+<h2 class="font-display text-2xl mb-6">Women's</h2>
+<p class="text-xs text-white/60 leading-relaxed mb-6">Curating the world's most elegant fashion since 2012. We believe in quality, sustainability, and timeless beauty.</p>
+<div class="flex gap-4">
+<span class="material-icons-outlined text-lg cursor-pointer hover:text-secondary">facebook</span>
+<span class="material-icons-outlined text-lg cursor-pointer hover:text-secondary">instagram</span>
+<span class="material-icons-outlined text-lg cursor-pointer hover:text-secondary">twitter</span>
+</div>
+</div>
+<div>
+<h4 class="text-[11px] font-bold uppercase tracking-widest mb-6">Collections</h4>
+<ul class="space-y-4 text-xs text-white/60">
+<li><a class="hover:text-white transition-colors" href="#">Spring / Summer</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Autumn / Winter</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Bridal Wear</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Limited Edition</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-[11px] font-bold uppercase tracking-widest mb-6">Help</h4>
+<ul class="space-y-4 text-xs text-white/60">
+<li><a class="hover:text-white transition-colors" href="#">Shipping &amp; Returns</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Size Guide</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Track Order</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-[11px] font-bold uppercase tracking-widest mb-6">Newsletter</h4>
+<p class="text-xs text-white/60 mb-6">Join our list for early access and trend updates.</p>
+<form class="flex border-b border-white/20 pb-2">
+<input class="bg-transparent border-none focus:ring-0 text-xs w-full placeholder:text-white/40" placeholder="Your email address" type="email"/>
+<button class="material-icons-outlined text-lg hover:text-secondary" type="submit">arrow_forward</button>
+</form>
+</div>
+</div>
+<div class="container mx-auto px-6 pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-[10px] text-white/40 tracking-widest uppercase">© 2024 Fashion Brand. All rights reserved.</p>
+<div class="flex gap-6 text-[10px] text-white/40 tracking-widest uppercase">
+<a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+<script>
+        // GSAP Animations
+        window.addEventListener('DOMContentLoaded', () => {
+            gsap.from("#hero-title", {
+                duration: 1.5,
+                y: 50,
+                opacity: 0,
+                ease: "power4.out",
+                delay: 0.2
+            });
+            gsap.from(".hero-reveal", {
+                duration: 2,
+                scale: 1.2,
+                opacity: 0,
+                ease: "power2.out"
+            });
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                threshold: 0.1
+            };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        gsap.to(entry.target, {
+                            opacity: 1,
+                            y: 0,
+                            duration: 1,
+                            ease: "power3.out"
+                        });
+                    }
+                });
+            }, observerOptions);
+            document.querySelectorAll('section > div').forEach(el => {
+                el.style.opacity = "0";
+                el.style.transform = "translateY(30px)";
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body></html>
